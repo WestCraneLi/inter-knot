@@ -1,10 +1,8 @@
 <template>
   <main>
-    <div class="banner">奖品发放结果已公示
-    </div>
     <div class="center" v-if="needUpdata">
       <a href="https://greasyfork.org/zh-CN/scripts/502874" class="link">
-        请更新“绳网小助手”，最新版本为 1.14.0
+        请更新“绳网小助手”，最新版本为 1.14.1
       </a>
     </div>
     <div class="center" v-else-if="needInstall">
@@ -130,13 +128,13 @@ onMounted(async () => {
   setTimeout(() => {
     if (typeof window.getUserInfo !== "function") {
       needInstall.value = true;
-    } else if (window.version !== "1.14.0") {
+    } else if (window.version !== "1.14.1") {
       needUpdata.value = true;
     }
   }, 2000);
   if (typeof window.run === "undefined") window.run = [];
   window.run.push(async () => {
-    if (window.version !== "1.14.0") {
+    if (window.version !== "1.14.1") {
       needUpdata.value = true;
       return;
     }
